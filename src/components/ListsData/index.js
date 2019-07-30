@@ -2,8 +2,9 @@ import React from "react";
 import MaterialTable from "material-table";
 import uuid from "uuid";
 import { Link } from "react-router-dom";
-export default function MaterialTableDemo() {
-  const [state, setState] = React.useState({
+
+const prepareData = () => {
+  let defaultData = {
     columns: [
       {
         title: "name",
@@ -33,18 +34,28 @@ export default function MaterialTableDemo() {
         field: "link"
       }
     ],
-    data: [
-      {
-        id: uuid(),
-        name: "Дикси",
-        dateOfCreate: "08.07.2018",
-        city: "Калуга",
-        totalPrice: "10220",
-        checked: 1,
-        link: <Link to={`/${uuid}`}> Открыть список</Link>
-      }
-    ]
-  });
+    data: []
+  };
+
+  for (let i = 0; i < 2; i++) {
+    const id = uuid();
+
+    defaultData.data.push({
+      id,
+      name: "Дикси",
+      dateOfCreate: "08.07.2018",
+      city: "Калуга",
+      totalPrice: "10220",
+      checked: 1,
+      link: <Link to={`/${id}`}> Открыть список</Link>
+    });
+  }
+
+  return defaultData;
+}
+
+export default function MaterialTableDemo() {
+  const [state, setState] = React.useState(prepareData());
 
   return (
     <div>
