@@ -1,0 +1,22 @@
+.navi-menu a {
+  text-decoration: none;
+  color: white;
+}
+.navi-menu {
+  background: black;
+  color: #fff;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 10px;
+}
+.Menu {
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+}
+a:hover {
+  /* Цвет фона под ссылкой */
+  color: greenyellow; /* Цвет ссылки */
+}
